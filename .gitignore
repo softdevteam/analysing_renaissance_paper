@@ -1,0 +1,14 @@
+**/*.swp
+bib.bib
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.synctex.gz
+img/*.pdf
+*.vtc
+softdevbib
+arxiv
+arxiv.zip
+renaissance.pdf
