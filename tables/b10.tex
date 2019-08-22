@@ -1,0 +1,2034 @@
+{
+\setlength\sparkspikewidth{1.5pt}
+\definecolor{sparkbottomlinecolor}{gray}{0.4}
+% Older versions of sparklines do not expose bottomlinethickness
+\renewcommand{\sparkbottomline}[1][1]{\pgfsetlinewidth{0.2pt}%
+  \color{sparkbottomlinecolor}%
+  \pgfline{\pgfxy(0,0)}{\pgfxy(#1,0)}\color{sparklinecolor}}
+
+\begin{longtable}{ll@{\hspace{0cm}}ll@{\hspace{-1cm}}r@{\hspace{0cm}}r@{\hspace{0cm}}r@{\hspace{0cm}}l@{\hspace{.3cm}}ll@{\hspace{-1cm}}r@{\hspace{0cm}}r@{\hspace{0cm}}r}
+\multicolumn{1}{c}{\multirow{2}{*}{}}&&&\multicolumn{1}{c}{} &\multicolumn{1}{c}{Steady}&\multicolumn{1}{c}{Steady}&\multicolumn{1}{c}{Steady}\\&&&\multicolumn{1}{c}{Class.} &\multicolumn{1}{c}{iter (\#)} &\multicolumn{1}{c}{iter (s)}&\multicolumn{1}{c}{perf (s)} \\\hline
+\endhead
+akka-uct&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&\multirow{20}{*}{\rotatebox[origin=c]{90}{graal-ce}}&\multicolumn{1}{l}{\badinconsistent \scriptsize($5$\warmup, $4$\flatc, $1$\nosteadystate)}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}\\ 
+als&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\badinconsistent \scriptsize($5$\nosteadystate, $3$\flatc, $2$\warmup)}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}\\ 
+chi-square&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\goodinconsistent \scriptsize($9$\warmup, $1$\flatc)}&$
+\begin{array}{c}
+\scriptstyle{44.0} \\[-6pt]
+\scriptscriptstyle{(19.9, 75.7)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.10
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.50 0.80
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{36.98} \\[-6pt]
+\scriptscriptstyle{(16.218, 63.543)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.10
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.50 0.80
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{0.80429} \\[-6pt]
+\scriptscriptstyle{\pm0.052808}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.20
+\sparkspike 0.20 0.20
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.30 0.10
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.40 0.10
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.20
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.20
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+db-shootout&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\flatc}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&$
+\begin{array}{c}
+\scriptstyle{5.38829} \\[-6pt]
+\scriptscriptstyle{\pm0.223526}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.30
+\sparkspike 0.20 0.10
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.60 0.10
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.70 0.10
+\sparkspike 0.80 0.10
+\sparkspike 0.90 0.20
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+dec-tree&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\warmup}&$
+\begin{array}{c}
+\scriptstyle{1230.5} \\[-6pt]
+\scriptscriptstyle{(1188.9, 1290.2)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.20
+\sparkspike 0.20 0.20
+\sparkspike 0.30 0.00
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.40 0.10
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.50 0.10
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.10
+\sparkspike 0.80 0.10
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.20
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{1968.69} \\[-6pt]
+\scriptscriptstyle{(1922.469, 2021.127)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.30
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.10
+\sparkspike 0.40 0.00
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.50 0.30
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.60 0.10
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.10
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{1.55375} \\[-6pt]
+\scriptscriptstyle{\pm0.054750}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.40
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.20 0.20
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.10
+\sparkspike 0.80 0.10
+\sparkspike 0.90 0.10
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+dotty&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\warmup}&$
+\begin{array}{c}
+\scriptstyle{279.0} \\[-6pt]
+\scriptscriptstyle{(250.8, 322.6)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.10
+\sparkspike 0.20 0.10
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.10
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.50 0.30
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.20
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.20
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{316.56} \\[-6pt]
+\scriptscriptstyle{(286.880, 364.796)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.10
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.10
+\sparkspike 0.40 0.10
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.50 0.30
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.20
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.20
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{1.05536} \\[-6pt]
+\scriptscriptstyle{\pm0.008675}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.10
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.30
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.40 0.20
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.10
+\sparkspike 0.70 0.10
+\sparkspike 0.80 0.10
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+fj-kmeans&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\goodinconsistent \scriptsize($8$\warmup, $2$\flatc)}&$
+\begin{array}{c}
+\scriptstyle{2.0} \\[-6pt]
+\scriptscriptstyle{(1.0, 2.5)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.20
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.60 0.70
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{4.16} \\[-6pt]
+\scriptscriptstyle{(0.000, 6.472)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.20
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.60 0.70
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{3.43671} \\[-6pt]
+\scriptscriptstyle{\pm0.372966}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.20
+\sparkspike 0.20 0.20
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.30 0.10
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.10
+\sparkspike 0.80 0.20
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.20
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+future-genetic&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\badinconsistent \scriptsize($5$\warmup, $4$\flatc, $1$\slowdown)}&$
+\begin{array}{c}
+\scriptstyle{14.0} \\[-6pt]
+\scriptscriptstyle{(1.0, 987.9)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.70
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.10
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.10
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{20.01} \\[-6pt]
+\scriptscriptstyle{(0.000, 1503.241)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.70
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.10
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.10
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{1.51295} \\[-6pt]
+\scriptscriptstyle{\pm0.058047}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.20
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.10
+\sparkspike 0.40 0.10
+\sparkspike 0.50 0.00
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.60 0.40
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.70 0.10
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+gauss-mix&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\warmup}&$
+\begin{array}{c}
+\scriptstyle{161.0} \\[-6pt]
+\scriptscriptstyle{(156.5, 237.6)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.80
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.10
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{140.39} \\[-6pt]
+\scriptscriptstyle{(130.610, 204.081)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.20
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.20 0.50
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.30 0.20
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{0.83647} \\[-6pt]
+\scriptscriptstyle{\pm0.037775}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.10
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.30
+\sparkspike 0.80 0.00
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.90 0.30
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 1.00 0.30
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+log-regression&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\badinconsistent \scriptsize($9$\nosteadystate, $1$\warmup)}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}\\ 
+mnemonics&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\badinconsistent \scriptsize($8$\warmup, $2$\slowdown)}&$
+\begin{array}{c}
+\scriptstyle{3.0} \\[-6pt]
+\scriptscriptstyle{(3.0, 398.1)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.70
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.10
+\sparkspike 1.00 0.20
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{7.21} \\[-6pt]
+\scriptscriptstyle{(7.089, 1215.030)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.70
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.30
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{3.02920} \\[-6pt]
+\scriptscriptstyle{\pm0.079644}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.20
+\sparkspike 0.20 0.20
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.30 0.20
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.20
+\sparkspike 0.70 0.10
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+naive-bayes&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\badinconsistent \scriptsize($7$\warmup, $2$\nosteadystate, $1$\slowdown)}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}\\ 
+neo4j-analytics&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\badinconsistent \scriptsize($5$\flatc, $3$\warmup, $1$\slowdown, $1$\nosteadystate)}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}\\ 
+par-mnemonics&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\badinconsistent \scriptsize($7$\warmup, $3$\slowdown)}&$
+\begin{array}{c}
+\scriptstyle{221.0} \\[-6pt]
+\scriptscriptstyle{(4.5, 607.5)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.20
+\sparkspike 0.20 0.20
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.30 0.10
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.40 0.20
+\sparkspike 0.50 0.10
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.10
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{573.17} \\[-6pt]
+\scriptscriptstyle{(10.387, 1611.834)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.20
+\sparkspike 0.20 0.20
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.30 0.10
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.40 0.20
+\sparkspike 0.50 0.10
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.10
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{2.64939} \\[-6pt]
+\scriptscriptstyle{\pm0.120870}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.20
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.10
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.50 0.20
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.60 0.20
+\sparkspike 0.70 0.10
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.10
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+philosophers&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\badinconsistent \scriptsize($9$\slowdown, $1$\nosteadystate)}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}\\ 
+reactors&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\badinconsistent \scriptsize($4$\flatc, $3$\warmup, $3$\slowdown)}&$
+\begin{array}{c}
+\scriptstyle{2.0} \\[-6pt]
+\scriptscriptstyle{(1.0, 931.7)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.70
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.20
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{11.09} \\[-6pt]
+\scriptscriptstyle{(0.000, 8442.628)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.70
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.20
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{9.17997} \\[-6pt]
+\scriptscriptstyle{\pm0.107281}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.10
+\sparkspike 0.20 0.10
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.20
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.70 0.10
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.80 0.20
+\sparkspike 0.90 0.10
+\sparkspike 1.00 0.20
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+rx-scrabble&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\badinconsistent \scriptsize($6$\slowdown, $3$\warmup, $1$\nosteadystate)}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}\\ 
+scala-kmeans&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\badinconsistent \scriptsize($4$\nosteadystate, $4$\warmup, $2$\slowdown)}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}\\ 
+scala-stm-bench7&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\warmup}&$
+\begin{array}{c}
+\scriptstyle{264.0} \\[-6pt]
+\scriptscriptstyle{(117.8, 910.0)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.30
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.20 0.60
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{206.91} \\[-6pt]
+\scriptscriptstyle{(95.792, 710.094)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.30
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.20 0.60
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{0.76991} \\[-6pt]
+\scriptscriptstyle{\pm0.010929}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.30
+\sparkspike 0.20 0.10
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.30 0.10
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.20
+\sparkspike 0.60 0.20
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+scrabble&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\goodinconsistent \scriptsize($9$\flatc, $1$\warmup)}&$
+\begin{array}{c}
+\scriptstyle{1.0} \\[-6pt]
+\scriptscriptstyle{(1.0, 49.9)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.90
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{0.00} \\[-6pt]
+\scriptscriptstyle{(0.000, 15.530)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.90
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{0.29152} \\[-6pt]
+\scriptscriptstyle{\pm0.038712}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.10
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.10
+\sparkspike 0.60 0.10
+\sparkspike 0.70 0.00
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.80 0.20
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.90 0.40
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+\hline
+akka-uct&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&\multirow{20}{*}{\rotatebox[origin=c]{90}{graal-ce-hotspot}}&\multicolumn{1}{l}{\goodinconsistent \scriptsize($7$\flatc, $3$\warmup)}&$
+\begin{array}{c}
+\scriptstyle{1.0} \\[-6pt]
+\scriptscriptstyle{(1.0, 572.6)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.80
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.10
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{0.00} \\[-6pt]
+\scriptscriptstyle{(0.000, 4197.425)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.80
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.10
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{7.24920} \\[-6pt]
+\scriptscriptstyle{\pm0.083997}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.60
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.20
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.10
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+als&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\badinconsistent \scriptsize($5$\nosteadystate, $3$\warmup, $1$\slowdown, $1$\flatc)}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}\\ 
+chi-square&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\goodinconsistent \scriptsize($5$\flatc, $5$\warmup)}&$
+\begin{array}{c}
+\scriptstyle{72.0} \\[-6pt]
+\scriptscriptstyle{(1.0, 332.4)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.50
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.10
+\sparkspike 0.50 0.20
+\sparkspike 0.60 0.10
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{82.60} \\[-6pt]
+\scriptscriptstyle{(0.000, 315.061)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.50
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.10
+\sparkspike 0.60 0.20
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.10
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{0.92334} \\[-6pt]
+\scriptscriptstyle{\pm0.208808}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.20
+\sparkspike 0.20 0.10
+\sparkspike 0.30 0.10
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.40 0.20
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.10
+\sparkspike 0.80 0.10
+\sparkspike 0.90 0.10
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+db-shootout&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\flatc}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&$
+\begin{array}{c}
+\scriptstyle{6.05240} \\[-6pt]
+\scriptscriptstyle{\pm0.265592}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.10
+\sparkspike 0.20 0.10
+\sparkspike 0.30 0.10
+\sparkspike 0.40 0.10
+\sparkspike 0.50 0.00
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.60 0.20
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.20
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.20
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+dec-tree&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\warmup}&$
+\begin{array}{c}
+\scriptstyle{1167.0} \\[-6pt]
+\scriptscriptstyle{(1084.6, 1228.2)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.10
+\sparkspike 0.20 0.10
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.20
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.60 0.10
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.70 0.20
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.10
+\sparkspike 1.00 0.20
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{1950.65} \\[-6pt]
+\scriptscriptstyle{(1884.886, 2007.078)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.10
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.10
+\sparkspike 0.40 0.20
+\sparkspike 0.50 0.00
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.60 0.30
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.10
+\sparkspike 0.90 0.10
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{1.66113} \\[-6pt]
+\scriptscriptstyle{\pm0.070871}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.30
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.10
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.40 0.10
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.50 0.10
+\sparkspike 0.60 0.10
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.10
+\sparkspike 0.90 0.10
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+dotty&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\warmup}&$
+\begin{array}{c}
+\scriptstyle{137.0} \\[-6pt]
+\scriptscriptstyle{(104.0, 246.8)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.30
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.20 0.20
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.10
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.10
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.10
+\sparkspike 0.90 0.10
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{197.58} \\[-6pt]
+\scriptscriptstyle{(152.841, 342.581)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.30
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.20 0.20
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.10
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.10
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.10
+\sparkspike 0.90 0.10
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{1.30432} \\[-6pt]
+\scriptscriptstyle{\pm0.037703}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.10
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.10
+\sparkspike 0.50 0.20
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.60 0.20
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.70 0.10
+\sparkspike 0.80 0.20
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+fj-kmeans&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\goodinconsistent \scriptsize($8$\warmup, $2$\flatc)}&$
+\begin{array}{c}
+\scriptstyle{2.0} \\[-6pt]
+\scriptscriptstyle{(1.0, 3.6)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.20
+\sparkspike 0.20 0.00
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.30 0.70
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{4.11} \\[-6pt]
+\scriptscriptstyle{(0.000, 9.880)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.20
+\sparkspike 0.20 0.00
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.30 0.70
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{3.29264} \\[-6pt]
+\scriptscriptstyle{\pm0.360004}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.20
+\sparkspike 0.20 0.10
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.30 0.30
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.40 0.10
+\sparkspike 0.50 0.10
+\sparkspike 0.60 0.10
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+future-genetic&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\badinconsistent \scriptsize($9$\warmup, $1$\slowdown)}&$
+\begin{array}{c}
+\scriptstyle{14.0} \\[-6pt]
+\scriptscriptstyle{(2.0, 924.1)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.70
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.10
+\sparkspike 0.50 0.10
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{18.88} \\[-6pt]
+\scriptscriptstyle{(1.820, 1271.670)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.70
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.10
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.10
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{1.41088} \\[-6pt]
+\scriptscriptstyle{\pm0.054155}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.30
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.10
+\sparkspike 0.50 0.00
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.60 0.10
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.70 0.10
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.20
+\sparkspike 1.00 0.20
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+gauss-mix&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\warmup}&$
+\begin{array}{c}
+\scriptstyle{132.5} \\[-6pt]
+\scriptscriptstyle{(80.5, 171.8)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.30
+\sparkspike 0.20 0.00
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.30 0.20
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.20
+\sparkspike 1.00 0.30
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{108.76} \\[-6pt]
+\scriptscriptstyle{(66.812, 139.747)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.30
+\sparkspike 0.20 0.00
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.30 0.20
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.20
+\sparkspike 1.00 0.30
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{0.79336} \\[-6pt]
+\scriptscriptstyle{\pm0.014569}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.40
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.20 0.10
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.30 0.20
+\sparkspike 0.40 0.10
+\sparkspike 0.50 0.10
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+log-regression&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\goodinconsistent \scriptsize($8$\flatc, $2$\warmup)}&$
+\begin{array}{c}
+\scriptstyle{1.0} \\[-6pt]
+\scriptscriptstyle{(1.0, 55.0)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.80
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.10
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{0.00} \\[-6pt]
+\scriptscriptstyle{(0.000, 113.354)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.80
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.10
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{2.00297} \\[-6pt]
+\scriptscriptstyle{\pm0.033177}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.10
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.10
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.10
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.90 0.30
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 1.00 0.40
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+mnemonics&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\badinconsistent \scriptsize($9$\warmup, $1$\slowdown)}&$
+\begin{array}{c}
+\scriptstyle{3.0} \\[-6pt]
+\scriptscriptstyle{(3.0, 442.6)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.80
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.20
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{7.00} \\[-6pt]
+\scriptscriptstyle{(6.896, 1360.945)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.80
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.20
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{3.08823} \\[-6pt]
+\scriptscriptstyle{\pm0.056426}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.10
+\sparkspike 0.20 0.10
+\sparkspike 0.30 0.10
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.60 0.30
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.20
+\sparkspike 0.90 0.10
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+naive-bayes&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\badinconsistent \scriptsize($6$\flatc, $3$\warmup, $1$\slowdown)}&$
+\begin{array}{c}
+\scriptstyle{1.0} \\[-6pt]
+\scriptscriptstyle{(1.0, 668.4)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.90
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{0.00} \\[-6pt]
+\scriptscriptstyle{(0.000, 842.543)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.90
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{1.25032} \\[-6pt]
+\scriptscriptstyle{\pm0.039789}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.40
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.20 0.10
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.30 0.10
+\sparkspike 0.40 0.10
+\sparkspike 0.50 0.10
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.10
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+neo4j-analytics&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\goodinconsistent \scriptsize($7$\warmup, $3$\flatc)}&$
+\begin{array}{c}
+\scriptstyle{64.5} \\[-6pt]
+\scriptscriptstyle{(1.0, 1298.2)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.80
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.20
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{256.26} \\[-6pt]
+\scriptscriptstyle{(0.000, 4786.530)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.80
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.20
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{3.77132} \\[-6pt]
+\scriptscriptstyle{\pm0.334818}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.10
+\sparkspike 0.20 0.10
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.30 0.40
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.20
+\sparkspike 0.70 0.10
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+par-mnemonics&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\badinconsistent \scriptsize($9$\warmup, $1$\slowdown)}&$
+\begin{array}{c}
+\scriptstyle{99.0} \\[-6pt]
+\scriptscriptstyle{(5.0, 683.8)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.30
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.20 0.40
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.30 0.10
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.20
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{227.20} \\[-6pt]
+\scriptscriptstyle{(10.168, 1641.911)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.30
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.20 0.40
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.30 0.10
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.20
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{2.36998} \\[-6pt]
+\scriptscriptstyle{\pm0.102158}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.20
+\sparkspike 0.20 0.10
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.60 0.20
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.70 0.10
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.10
+\sparkspike 1.00 0.30
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+philosophers&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\goodinconsistent \scriptsize($7$\warmup, $3$\flatc)}&$
+\begin{array}{c}
+\scriptstyle{33.5} \\[-6pt]
+\scriptscriptstyle{(1.0, 787.3)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.60
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.10
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.10
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.10
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{39.56} \\[-6pt]
+\scriptscriptstyle{(0.000, 944.836)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.60
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.10
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.10
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.10
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{1.15929} \\[-6pt]
+\scriptscriptstyle{\pm0.064406}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.10
+\sparkspike 0.20 0.10
+\sparkspike 0.30 0.00
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.40 0.40
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.10
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.10
+\sparkspike 0.90 0.10
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+reactors&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\badinconsistent \scriptsize($6$\flatc, $4$\slowdown)}&$
+\begin{array}{c}
+\scriptstyle{1.0} \\[-6pt]
+\scriptscriptstyle{(1.0, 864.4)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.60
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.10
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.10
+\sparkspike 0.90 0.10
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{0.00} \\[-6pt]
+\scriptscriptstyle{(0.000, 8520.771)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.60
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.10
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.10
+\sparkspike 0.90 0.10
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{9.96745} \\[-6pt]
+\scriptscriptstyle{\pm0.180175}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.10
+\sparkspike 0.20 0.20
+\sparkspike 0.30 0.10
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.40 0.10
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.10
+\sparkspike 0.70 0.10
+\sparkspike 0.80 0.10
+\sparkspike 0.90 0.10
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+rx-scrabble&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\badinconsistent \scriptsize($7$\warmup, $3$\slowdown)}&$
+\begin{array}{c}
+\scriptstyle{77.0} \\[-6pt]
+\scriptscriptstyle{(76.0, 109.3)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.60
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.10
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.10
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.10
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{16.21} \\[-6pt]
+\scriptscriptstyle{(15.815, 22.622)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.60
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.10
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.10
+\sparkspike 0.80 0.10
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{0.20222} \\[-6pt]
+\scriptscriptstyle{\pm0.001798}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.10
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.30
+\sparkspike 0.50 0.00
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.60 0.10
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.70 0.10
+\sparkspike 0.80 0.10
+\sparkspike 0.90 0.20
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+scala-kmeans&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\badinconsistent \scriptsize($6$\slowdown, $4$\nosteadystate)}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}\\ 
+scala-stm-bench7&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\badinconsistent \scriptsize($9$\warmup, $1$\slowdown)}&$
+\begin{array}{c}
+\scriptstyle{202.5} \\[-6pt]
+\scriptscriptstyle{(76.6, 1327.6)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.50
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.10
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.10
+\sparkspike 0.50 0.10
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.10
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{168.98} \\[-6pt]
+\scriptscriptstyle{(64.756, 1099.853)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.50
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.10
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.10
+\sparkspike 0.50 0.10
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.10
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{0.80903} \\[-6pt]
+\scriptscriptstyle{\pm0.022210}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.10
+\sparkspike 0.20 0.10
+\sparkspike 0.30 0.10
+\sparkspike 0.40 0.10
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.50 0.20
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.60 0.10
+\sparkspike 0.70 0.20
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+scrabble&\begin{minipage}[c][\blankheight]{0pt}\end{minipage}&&\multicolumn{1}{l}{\warmup}&$
+\begin{array}{c}
+\scriptstyle{11.0} \\[-6pt]
+\scriptscriptstyle{(11.0, 22.4)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.90
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{4.45} \\[-6pt]
+\scriptscriptstyle{(4.266, 8.287)}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.10 0.90
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.00
+\sparkspike 0.40 0.00
+\sparkspike 0.50 0.00
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.00
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.10
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+&$
+\begin{array}{c}
+\scriptstyle{0.33618} \\[-6pt]
+\scriptscriptstyle{\pm0.008877}
+\end{array}
+$
+\noindent\parbox[p]{4ex}{\renewcommand{\sparklineheight}{2.75}
+\begin{sparkline}{4}
+\sparkspike 0.10 0.10
+\sparkspike 0.20 0.00
+\sparkspike 0.30 0.20
+\sparkspike 0.40 0.00
+\definecolor{sparkspikecolor}{named}{red}
+\sparkspike 0.50 0.20
+\definecolor{sparkspikecolor}{named}{black}
+\sparkspike 0.60 0.00
+\sparkspike 0.70 0.00
+\sparkspike 0.80 0.10
+\sparkspike 0.90 0.00
+\sparkspike 1.00 0.40
+\sparkbottomline
+\end{sparkline}
+\renewcommand{\sparklineheight}{1.75}}
+\\ 
+
+\hline
+\end{longtable}
+}

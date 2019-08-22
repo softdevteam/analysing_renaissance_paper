@@ -1,5 +1,6 @@
 \documentclass[a4paper]{article}
 
+\usepackage[margin=1in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{microtype}
@@ -15,6 +16,8 @@
 \usepackage{gensymb}
 \usepackage{hyperref}
 \usepackage{fp}
+\usepackage{longtable}
+\usepackage{sparklines}
 
 %% \usepackage{showframe}  %% Use this for debugging margin overruns in tables.
 \usepackage{adjustbox}
@@ -28,7 +31,16 @@
 \usepackage{float}
 \usepackage{siunitx}
 
+
+\newcommand{\krun}{\textsc{Krun}\xspace}
+\newcommand{\graalce}{\textsc{Graal CE}\xspace}
+\newcommand{\graalcehs}{\textsc{Graal CE Hotspot}\xspace}
+\newcommand{\bencherseven}{\ensuremath{M_1}\xspace}
+\newcommand{\bencherten}{\ensuremath{M_2}\xspace}
+\input{tables/preamble}
+
 \begin{document}
+
 
 \title{Analysing the Renaissance Benchmark Suite~\footnote{Updates to this paper will be found at \url{XXX}}}
 
@@ -37,14 +49,63 @@
 \maketitle
 
 \begin{abstract}
-XXX
+\noindent In this early draft we evaluate the warmup characteristics of the
+Renaissance Benchmark Suite.~\cite{prokopec19renaissance} We do so using the
+benchmarking practices from our earlier work on VM
+warmup~\cite{barrett16warmup}. Namely, we run the benchmarks for longer than is
+typical and we use a controlled benchmarking environment enforced by our
+benchmark runner, \krun. We find that XXX.
 \end{abstract}
 
 
-\section{Introduction}
-\label{sec:intro}
+\section{Benchmarking Method}
+\label{sec:eval}
 
-XXX~\cite{barrett16warmup}.
+Following the precident of the Renaissance suite, we will run the benchmarks
+using two different \emph{VM configurations}: \graalce and \graalcehs.
+\edd{what are these?}. Each VM configuration and benchmark pairing is run 10
+times using a fresh invocation and thus OS process. We call each such
+invocation a \emph{process executions}. Within each process execution the
+benchmark is repeated 2000 times. We call these inner repetitions
+\emph{in-process iterations}. In contrast, the Renaissance authors run
+XXX\edd{how many?}
+
+We run the Renaissance benchmarks in a similar fashion to that used in our
+warmup experiment.~\cite{barrett16warmup}. We use the \krun runner with
+settings designed to mimimise (where possible) measurement variation introduced
+by the benchmarking environment. For example, consistent stack and heap limits
+are set, undesirable daemons are disabled during benchmarking, the system
+temperature before each run is not allowed deviate too much, and network
+interfaces are disabled during benchmarking.
+
+One small change was made to \krun. For each process execution, usually a
+\krun experiment will call an \emph{iterations runner} which (amongst other
+things) allocates the results array in an appropriate manner and collects
+wallclock times using an appropriate high-resolution monotonic clock. Instead
+of using an iterations runner, we changed \krun, adding the ability to defer
+results collection to an external program.~\footnote{See
+\texttt{ExternalSuiteVMDef} in the \krun source code} Although such an approach
+means that we lose some of the advanced \krun functionality (e.g.
+measuring core cycles and checking \texttt{APERF}/\texttt{MPERF} ratios), this
+does allow us to re-use a large chunk of the benchmark running code from the
+Renaissance suite.
+
+\edd{which clock do they use? Talk about it?}
+
+We ran the experiments on two similar machines. The first, \bencherseven, is a
+Dell PowerEdge R330 with an Intel Xeon CPU E3-1240 v5, running at 3.50GHz and
+with 24GiB of RAM. The second machine, \bencherten, is also a Dell PowerEdge
+R330, but has an Intel Xeon CPU E3-1240 v6 running at a slightly faster 3.70GHz
+and with 32Gib of RAM. Both machines run Debian-9.9 with an indentical set of
+installed packages. Both machines have hyper-threading and turbo boost
+disabled.
+
+\section{Results}
+\label{sec:results}
+
+\edd{tables don't break properly when placed in a table env...}
+\input{tables/b7}
+\input{tables/b10}
 
 \bibliographystyle{plain}
 \bibliography{bib}

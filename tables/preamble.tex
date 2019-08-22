@@ -1,0 +1,83 @@
+\AtBeginDocument{
+\newlength{\blankheight}
+\settototalheight{\blankheight}{
+$\begin{array}{rr}
+\scriptstyle{0.16} \\[-6pt]
+\scriptscriptstyle{\pm0.000}
+\end{array}$
+}
+}
+
+%
+% Sparklines.
+%
+\DeclareRobustCommand{\flatc}{%
+\setlength{\sparklinethickness}{0.4pt}%
+\begin{sparkline}{1.5}
+\spark 0.0 0.35
+       1.0 0.35
+       /%
+\end{sparkline}\xspace}
+\DeclareRobustCommand{\nosteadystate}{%
+\setlength{\sparklinethickness}{0.4pt}%
+\begin{sparkline}{1.5}
+\spark 0.0 0.35
+       0.1 0.5
+       0.3 0.2
+       0.5 0.5
+       0.7 0.2
+       0.9 0.5
+       1.0 0.35
+       /%
+\end{sparkline}\xspace}
+\DeclareRobustCommand{\warmup}{%
+\setlength{\sparklinethickness}{0.4pt}%
+\begin{sparkline}{1.5}
+\spark 0.0 0.8
+       0.5 0.8
+       0.5 0.0
+       1.0 0.0
+       /%
+\end{sparkline}\xspace}
+\DeclareRobustCommand{\slowdown}{%
+\setlength{\sparklinethickness}{0.4pt}%
+\begin{sparkline}{1.5}
+\spark 0.0 0.0
+       0.5 0.0
+       0.5 0.8
+       1.0 0.8
+       /%
+\end{sparkline}\xspace}
+\DeclareRobustCommand{\badinconsistent}{%
+\setlength{\sparklinethickness}{0.4pt}%
+\begin{sparkline}{1.5}
+\spark 0.1 0.4
+       0.9 0.4
+       /%
+\spark 0.1 0.2
+       0.9 0.2
+       /%
+\spark 0.1 0.6
+       0.9 0.0
+       /%
+\spark 0.1 0.0
+       0.9 0.6
+       /%
+\end{sparkline}\xspace}
+\DeclareRobustCommand{\goodinconsistent}{%
+\setlength{\sparklinethickness}{0.4pt}%
+\begin{sparkline}{1.5}
+\spark 0.1 0.4
+       0.9 0.4
+       /%
+\spark 0.1 0.2
+       0.9 0.2
+       /%
+\end{sparkline}\xspace}
+
+%
+% Colours.
+%
+\definecolor{lightred}{HTML}{e88a8a}
+\definecolor{lightyellow}{HTML}{e8e58a}
+\definecolor{lightgreen}{HTML}{8ae89c}

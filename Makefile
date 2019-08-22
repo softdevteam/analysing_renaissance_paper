@@ -7,6 +7,7 @@ BIB_FILE = bib.bib
 
 SOFTDEVBIB_VERSION = master
 
+TABLES = tables/b7.tex tables/b10.tex
 DIAGRAMS =
 
 BASE_CLEANFILES =	aux bbl blg dvi log ps pdf toc out snm nav vrb \
