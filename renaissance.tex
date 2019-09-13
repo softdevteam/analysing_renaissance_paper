@@ -104,14 +104,7 @@ disabled.
 \section{Results}
 \label{sec:results}
 
-The results for the two machines are shown in Appendix~\ref{sec:tables}.
-
-\begin{table}
-\begin{tabular}{|c|}
-hi\\
-\end{tabular}
-\caption{hi}
-\end{table}
+The results for the two machines are shown in Tables~\ref{tab:b7graalce}--\ref{tab:b10graalcehs}.
 
 \bibliographystyle{plain}
 \bibliography{bib}
@@ -119,16 +112,20 @@ hi\\
 \appendix
 
 \section{Results Tables}
-\label{sec:tables}
 
-\subsection{Results Table for \bencherseven}
-\label{sec:tablesb7}
+\newcommand{\captionbsevengraalce}{Results for \graalce on \bencherseven.}
+\input{tables/b7-graal-ce}
 
-\input{tables/b7}
+\newpage
+\newcommand{\captionbsevengraalcehs}{Results for \graalcehs on \bencherseven.}
+\input{tables/b7-graal-ce-hotspot}
 
-\subsection{Results Table for \bencherten}
-\label{sec:tablesb10}
+\newpage
+\newcommand{\captionbtengraalce}{Results for \graalce on \bencherten.}
+\input{tables/b10-graal-ce}
 
-\input{tables/b10}
+\newpage
+\newcommand{\captionbtengraalcehs}{Results for \graalcehs on \bencherten.}
+\input{tables/b10-graal-ce-hotspot}
 
 \end{document}

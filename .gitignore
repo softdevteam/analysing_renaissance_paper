@@ -12,3 +12,6 @@ softdevbib
 arxiv
 arxiv.zip
 renaissance.pdf
+data
+tables/*.orig
+warmup_stats
