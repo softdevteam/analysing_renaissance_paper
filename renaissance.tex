@@ -58,18 +58,23 @@ typical and we use a controlled benchmarking environment enforced by our
 benchmark runner, \krun. We find that XXX.
 \end{abstract}
 
-
 \section{Benchmarking Method}
 \label{sec:eval}
 
-Following the precident of the Renaissance suite, we will run the benchmarks
-using two different \emph{VM configurations}: \graalce and \graalcehs.
-\edd{what are these?}. Each VM configuration and benchmark pairing is run 10
-times using a fresh invocation and thus OS process. We call each such
-invocation a \emph{process executions}. Within each process execution the
-benchmark is repeated 2000 times. We call these inner repetitions
-\emph{in-process iterations}. In contrast, the Renaissance authors run
-XXX\edd{how many?}
+Following the precident set by the Renaissance suite, we run (version 0.9.0 of)
+the benchmarks using two different \emph{VM configurations}: \graalce is
+(version 1.0.0-rc16 of) Graal Community Edition running with the default Graal
+compiler configuration; \graalcehs is the same Graal Community Edition binary
+invoked with with arguments to disable the Graal compiler (and instead use the
+regular OpenJDK JIT compiler).
+
+We adopt the benchmarking terminology used in~\cite{barrett16warmup}. A
+\emph{process execution} is the execution of a single operating system process.
+An \emph{in-process iteration} is a single iteration of a benchmark within a
+process execution, and a single process execution executes many in-process
+iterations. In our experiment, each VM configuration and benchmark pairing is
+run using 10 process executions, and each process execution runs 2000
+in-process iterations.
 
 We run the Renaissance benchmarks in a similar fashion to that used in our
 warmup experiment.~\cite{barrett16warmup}. We use the \krun runner with
@@ -84,8 +89,8 @@ One small change was made to \krun. For each process execution, usually a
 things) allocates the results array in an appropriate manner and collects
 wallclock times using an appropriate high-resolution monotonic clock. Instead
 of using an iterations runner, we changed \krun, adding the ability to defer
-results collection to an external program.~\footnote{See
-\texttt{ExternalSuiteVMDef} in the \krun source code} Although such an approach
+results collection to an external program.~\footnote{For details, see
+\texttt{ExternalSuiteVMDef} in the \krun source code.} Although such an approach
 means that we lose some of the advanced \krun functionality (e.g.
 measuring core cycles and checking \texttt{APERF}/\texttt{MPERF} ratios), this
 does allow us to re-use a large chunk of the benchmark running code from the
