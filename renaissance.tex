@@ -55,7 +55,9 @@ Renaissance Benchmark Suite.~\cite{prokopec19renaissance} We do so using the
 benchmarking practices from our earlier work on VM
 warmup~\cite{barrett16warmup}. Namely, we run the benchmarks for longer than is
 typical and we use a controlled benchmarking environment enforced by our
-benchmark runner, \krun. We find that XXX.
+benchmark runner, \krun. We find that many benchmarks exhibit inconsistency at
+the process execution level, and that many either take a long time to
+stabilise, or do not stabilise within 2000 iterations.
 \end{abstract}
 
 \section{Benchmarking Method}
@@ -119,27 +121,31 @@ adjustments by NTP. Ordinarily, on Linux machines we'd prefer the
 \section{Results}
 \label{sec:results}
 
-The results for the two machines are shown in
-Tables~\ref{tab:b7graalce}--\ref{tab:b10graalcehs}. We present our results
-using the same metrics as proposed in~\cite{barrett16warmup}. In short, each
-table shows the results for one VM configuration running on one machine. The
-behaviour of each process execution is individually classified as either:
+We ran our experiment as described in the previous section, giving us a total
+of 800 process executions and 1.6 million in-process iterations worth of data.
+We present our results using the same metrics as proposed
+in~\cite{barrett16warmup} and refer the reader to this publication for a more
+in-depth description of the format of our results tables. In short, for each
+machine, we present one result table. Each row in a table shows the results for
+one VM configuration and benchmark pairing.
+
+The first metric we report is the pairing's \emph{classification}. The
+behaviour of each process execution is individually (but automatically) classified as either:
 \emph{warmup} (\warmup); \emph{slowdown} (\slowdown); \emph{flat} (\flatc); or
-\emph{no steady state} (\nosteadystate). Then the \emph{Class.} column
-summarises the classifications for each benchmark and language configuration
-pairing (for the machine in question).
+\emph{no steady state} (\nosteadystate). Then based on these classifications,
+we decide an overall summary classification for each benchmark and language
+configuration pairing.
 
 For a \emph{consistent} classification summary result (where all process
 executions behaved the same), a single classification symbol is reported,
 whereas for \emph{inconsistent} results (where we observed more than a single
 classification) the constituent classifications are shown with an indicator of
-whether the inconsistency is a \emph{"good inconsistency"} (\goodinconsistent)
-or a \emph{"bad inconsistency"} (\badinconsistent). For example
-\badinconsistent(22\slowdown, 8\warmup) means "bad inconsistent: 22 slowdowns
-and 8 warmups". Only inconsistent behaviours composed of flat and warmup
-classifications are considered "good inconsistent". This stems from the
-observation that benchmarks which slow down or fail to stabilise are
-undesirable.
+whether the inconsistency is a \emph{good inconsistency} (\goodinconsistent)
+or a \emph{bad inconsistency} (\badinconsistent). For example
+\badinconsistent(8\slowdown, 2\warmup) means "bad inconsistent: 8 slowdowns
+and 2 warmups". Only inconsistent behaviours composed of flat and warmup
+classifications are considered ``good inconsistent''. This is because
+benchmarks which slow down or fail to stabilise are undesirable.
 
 If a steady state is achieved, we report three additional summary statistics.
 \emph{Steady iter (\#)} is the median in-process iteration number to reach the
@@ -150,7 +156,45 @@ is the mean steady state performance across all process executions (reported
 with 99\% confidence intervals). Thumbnail histograms show the spread of
 values; the red bars indicates the median values.
 
-The first thing we notice is that the \edd{XXX}.
+\subsection{Analysis}
+
+The results for the two machines are shown in
+Tables~\ref{tab:b7graalce}--\ref{tab:b10graalcehs}. The first thing we notice
+is that the steady state performances (where
+available) of \graalce and \graalcehs are not vastly different. The results
+presented in the original Renaissance paper~\cite{prokopec19renaissance} showed
+that Graal could achieve some substantial speedups compared to Hotspot. Namely
+a benchmark called \emph{factorie} achieved a speedup of about 3x, scrabble
+about 2x, and \emph{naive-bayes} about 1.75x. In the version of the suite we
+used, \emph{factorie} is absent, \emph{scrabble} achieved about a $15-20\%$
+speedup on \graalce and \emph{naive-bayes} couldn't be compared because it
+didn't always stabilise. We acknowledge that this comparison isn't entirely
+fair as it is unlikely that we are using the same versions of the benchmarks
+and of Graal as the original paper (which does not specify which versions were
+used). At the time of writing, the Renaissance website shows updated plots
+showing results much more in keeping with our own.
+
+Next we note that the benchmark classifications are broadly the same between
+the two different machines. This not unexpected given that the hardware is
+similar (although not identical). If anything, it seems that the
+classifications are more similar for \graalce than for \graalcehs, perhaps
+suggesting that \graalce is a bit more \emph{machine deterministic} (however
+the deviations are not large).
+
+The next observation worth note is that around half (44/80) of the VM
+configuration and benchmarking pairings are classified as "bad inconsistent''.
+This suggests that the Renaissance suite exhibits non-determinism at the
+process execution level. The histograms for \emph{Steady iter \#}, \emph{Steady
+iter (s)} and \emph{Steady perf (s)} also suggest that there is a problem with
+non-determinism at the process execution level: the distributions are rarely
+normal, and often bi-modal. It is not clear, however, what the source(s) of
+this variance are (it could be the operating system, hardware, the VM, etc.).
+
+Finally, we highlight the tendency for some benchmarks to stabilise very late
+or not at all. This is troublesome since few current benchmarking approaches
+account for such cases, simply assuming that benchmarks always stabilise after
+a fixed number of in-process iterations. This can lead to inaccurate results,
+and in turn to false conclusions.
 
 \bibliographystyle{plain}
 \bibliography{bib}
@@ -175,5 +219,9 @@ The first thing we notice is that the \edd{XXX}.
 \newpage
 \newcommand{\captionbtengraalcehs}{Results for \graalcehs on \bencherten.}
 \input{tables/b10-graal-ce-hotspot}
+
+\section{Interesting Plots}
+
+\edd{XXX}
 
 \end{document}
