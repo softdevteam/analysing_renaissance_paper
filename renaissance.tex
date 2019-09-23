@@ -96,8 +96,6 @@ measuring core cycles and checking \texttt{APERF}/\texttt{MPERF} ratios), this
 does allow us to re-use a large chunk of the benchmark running code from the
 Renaissance suite.
 
-\edd{which clock do they use? Talk about it?}
-
 We ran the experiments on two similar machines. The first, \bencherseven, is a
 Dell PowerEdge R330 with an Intel Xeon E3-1240 v5 CPU, running at 3.50GHz and
 with 24GiB of RAM. The second machine, \bencherten, is also a Dell PowerEdge
@@ -105,6 +103,18 @@ R330, but has an Intel Xeon E3-1240 v6 CPU running at 3.70GHz
 and with 32Gib of RAM. Both machines run Debian-9.9 with an indentical set of
 installed packages. Both machines have hyper-threading and turbo boost
 disabled.
+
+Note that because we run the benchmarks and VMs unpatched, we inherit the
+choice of clock used for measurements. In the Renaissance suite, benchmark
+timings are collected using \texttt{System.nanoTime()}, whose behaviour is
+platform dependent. On the Linux machines we used, \texttt{System.nanoTime()}
+is implemented with a call to \texttt{clock\_gettime(2)} and using the
+\texttt{CLOCK\_MONOTONIC} clock source.\footnote{This is a monotonic clock which
+is unaffected by user changes to the time, but which \emph{is} affected by
+adjustments by NTP. Ordinarily, on Linux machines we'd prefer the
+\texttt{CLOCK\_GETTIME\_MONOTONIC} clock source.}
+
+
 
 \section{Results}
 \label{sec:results}
