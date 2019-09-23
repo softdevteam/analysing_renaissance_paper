@@ -119,7 +119,38 @@ adjustments by NTP. Ordinarily, on Linux machines we'd prefer the
 \section{Results}
 \label{sec:results}
 
-The results for the two machines are shown in Tables~\ref{tab:b7graalce}--\ref{tab:b10graalcehs}.
+The results for the two machines are shown in
+Tables~\ref{tab:b7graalce}--\ref{tab:b10graalcehs}. We present our results
+using the same metrics as proposed in~\cite{barrett16warmup}. In short, each
+table shows the results for one VM configuration running on one machine. The
+behaviour of each process execution is individually classified as either:
+\emph{warmup} (\warmup); \emph{slowdown} (\slowdown); \emph{flat} (\flatc); or
+\emph{no steady state} (\nosteadystate). Then the \emph{Class.} column
+summarises the classifications for each benchmark and language configuration
+pairing (for the machine in question).
+
+For a \emph{consistent} classification summary result (where all process
+executions behaved the same), a single classification symbol is reported,
+whereas for \emph{inconsistent} results (where we observed more than a single
+classification) the constituent classifications are shown with an indicator of
+whether the inconsistency is a \emph{"good inconsistency"} (\goodinconsistent)
+or a \emph{"bad inconsistency"} (\badinconsistent). For example
+\badinconsistent(22\slowdown, 8\warmup) means "bad inconsistent: 22 slowdowns
+and 8 warmups". Only inconsistent behaviours composed of flat and warmup
+classifications are considered "good inconsistent". This stems from the
+observation that benchmarks which slow down or fail to stabilise are
+undesirable.
+
+If a steady state is achieved, we report three additional summary statistics.
+\emph{Steady iter (\#)} is the median in-process iteration number to reach the
+steady state, and \emph{Steady iter (s)} is the median wall-clock time (since
+the beginning of the process execution) to reach the steady state; for both
+measures we report 5\% and 95\% inter-quartile ranges. \emph{Steady perf (s)}
+is the mean steady state performance across all process executions (reported
+with 99\% confidence intervals). Thumbnail histograms show the spread of
+values; the red bars indicates the median values.
+
+The first thing we notice is that the \edd{XXX}.
 
 \bibliographystyle{plain}
 \bibliography{bib}
@@ -127,6 +158,8 @@ The results for the two machines are shown in Tables~\ref{tab:b7graalce}--\ref{t
 \appendix
 
 \section{Results Tables}
+
+\edd{Missing column heading in tables!}
 
 \newcommand{\captionbsevengraalce}{Results for \graalce on \bencherseven.}
 \input{tables/b7-graal-ce}
