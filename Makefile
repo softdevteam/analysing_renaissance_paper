@@ -27,6 +27,14 @@ TABLES = ${TABLE_B7_GRAAL_CE} \
 	 ${TABLE_B10_GRAAL_CE} \
 	 ${TABLE_B10_GRAAL_CE_HOTSPOT}
 
+PLOTS =	plots/slowdown1.pdf \
+	plots/no-steady1.pdf \
+	plots/no-steady2.pdf \
+	plots/cycles1.pdf \
+	plots/outliers1.pdf \
+	plots/fastearly1.pdf \
+	plots/steps1.pdf
+
 DIAGRAMS =
 
 BASE_CLEANFILES =	aux bbl blg dvi log ps pdf toc out snm nav vrb \
@@ -57,7 +65,7 @@ softdevbib:
 	git clone https://github.com/softdevteam/softdevbib.git
 
 TEXMFHOME="../../share/texmf"
-${MAIN_TEX}.pdf: ${DIAGRAMS} ${MAIN_TEX}.tex ${BIB_FILE} ${TABLES}
+${MAIN_TEX}.pdf: ${DIAGRAMS} ${MAIN_TEX}.tex ${BIB_FILE} ${TABLES} ${PLOTS}
 	TEXMFHOME=${TEXMFHOME} ${PDFLATEX} ${MAIN_TEX}.tex
 	cd softdevbib && git checkout ${SOFTDEVBIB_VERSION}
 	bibtex ${MAIN_TEX}
@@ -74,18 +82,23 @@ warmup_stats:
 
 tables: ${TABLES}
 
+data:
+	mkdir -p data
+	cd data && wget --no-use-server-timestamps ${DATA_B7_URL} && \
+		../warmup_stats/bin/mark_outliers_in_json ${DATA_B7} && \
+		../warmup_stats/bin/mark_changepoints_in_json ${DATA_B7_OUTLIERS}
+	cd data && \
+		wget --no-use-server-timestamps ${DATA_B10_URL} && \
+		../warmup_stats/bin/mark_outliers_in_json ${DATA_B10} && \
+		../warmup_stats/bin/mark_changepoints_in_json ${DATA_B10_OUTLIERS}
+
 ${TABLE_B7_GRAAL_CE}: ${TABLE_B7_GRAAL_CE_HOTSPOT}
 	warmup_stats/bin/table_classification_summaries_others -o $@ \
 		--only-vms graal-ce --without-preamble \
 		data/${DATA_B7_OUTLIERS_CPTS}
 	sed -i'.orig' 's/\\end{longtable}/\\caption{\\captionbsevengraalce}\n\\label{tab:b7graalce}\n\\end{longtable}/g' $@
 
-${TABLE_B7_GRAAL_CE_HOTSPOT}:
-	mkdir -p data
-	cd data && \
-		wget --no-use-server-timestamps ${DATA_B7_URL} && \
-		../warmup_stats/bin/mark_outliers_in_json ${DATA_B7} && \
-		../warmup_stats/bin/mark_changepoints_in_json ${DATA_B7_OUTLIERS}
+${TABLE_B7_GRAAL_CE_HOTSPOT}: data
 	warmup_stats/bin/table_classification_summaries_others -o $@ \
 		--only-vms graal-ce-hotspot --without-preamble \
 		data/${DATA_B7_OUTLIERS_CPTS}
@@ -97,12 +110,47 @@ ${TABLE_B10_GRAAL_CE}: ${TABLE_B10_GRAAL_CE_HOTSPOT}
 		data/${DATA_B10_OUTLIERS_CPTS}
 	sed -i'.orig' 's/\\end{longtable}/\\caption{\\captionbtengraalce}\n\\label{tab:b10graalce}\n\\end{longtable}/g' $@
 
-${TABLE_B10_GRAAL_CE_HOTSPOT}:
-	cd data && \
-		wget --no-use-server-timestamps ${DATA_B10_URL} && \
-		../warmup_stats/bin/mark_outliers_in_json ${DATA_B10} && \
-		../warmup_stats/bin/mark_changepoints_in_json ${DATA_B10_OUTLIERS}
+${TABLE_B10_GRAAL_CE_HOTSPOT}: data
 	warmup_stats/bin/table_classification_summaries_others -o $@ \
 		--only-vms graal-ce-hotspot --without-preamble \
 		data/${DATA_B10_OUTLIERS_CPTS}
 	sed -i'.orig' 's/\\end{longtable}/\\caption{\\captionbtengraalcehs}\n\\label{tab:b10graalcehs}\n\\end{longtable}/g' $@
+
+#
+# Plot generation
+#
+
+plots/slowdown1.pdf: warmup_stats data
+	mkdir -p plots
+	warmup_stats/bin/plot_krun_results --with-outliers --with-changepoints -o $@ \
+		-b bencher7:akka-uct:graal-ce-hotspot:default-ext:6 data/${DATA_B7_OUTLIERS_CPTS}
+
+plots/no-steady1.pdf: warmup_stats data
+	mkdir -p plots
+	warmup_stats/bin/plot_krun_results --with-outliers --with-changepoints -o $@ \
+		-b bencher7:log-regression:graal-ce:default-ext:5 data/${DATA_B7_OUTLIERS_CPTS}
+
+plots/no-steady2.pdf: warmup_stats data
+	mkdir -p plots
+	warmup_stats/bin/plot_krun_results --with-outliers --with-changepoints -o $@ \
+		-b bencher10:scala-kmeans:graal-ce-hotspot:default-ext:1 data/${DATA_B10_OUTLIERS_CPTS}
+
+plots/cycles1.pdf: warmup_stats data
+	mkdir -p plots
+	warmup_stats/bin/plot_krun_results --with-outliers --with-changepoints -o $@ \
+		-b bencher7:mnemonics:graal-ce:default-ext:8 data/${DATA_B7_OUTLIERS_CPTS}
+
+plots/outliers1.pdf: warmup_stats data
+	mkdir -p plots
+	warmup_stats/bin/plot_krun_results --with-outliers --with-changepoints -o $@ \
+		-b bencher10:future-genetic:graal-ce-hotspot:default-ext:9 data/${DATA_B10_OUTLIERS_CPTS}
+
+plots/fastearly1.pdf: warmup_stats data
+	mkdir -p plots
+	warmup_stats/bin/plot_krun_results --with-outliers --with-changepoints -o $@ \
+		-b bencher7:fj-kmeans:graal-ce-hotspot:default-ext:8 data/${DATA_B7_OUTLIERS_CPTS}
+
+plots/steps1.pdf: warmup_stats data
+	mkdir -p plots
+	warmup_stats/bin/plot_krun_results --with-outliers --with-changepoints -o $@ \
+		-b bencher7:scrabble:graal-ce:default-ext:5 data/${DATA_B7_OUTLIERS_CPTS}
