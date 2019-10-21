@@ -125,3 +125,8 @@ plots/steps1.pdf: warmup_stats data
 	mkdir -p plots
 	warmup_stats/bin/plot_krun_results --with-outliers --with-changepoints -o $@ \
 		-b bencher7:scrabble:graal-ce:default-ext:5 data/${DATA_B7_OUTLIERS_CPTS}
+
+plots/leak.pdf: warmup_stats data
+	mkdir -p plots
+	warmup_stats/bin/plot_krun_results --with-outliers --with-changepoints -o $@ \
+		-b bencher7:als:openj9:default-ext:2 data/${DATA_J9_B7_OUTLIERS_CPTS}

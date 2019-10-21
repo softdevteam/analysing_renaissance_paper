@@ -18,4 +18,5 @@ PLOTS =	plots/slowdown1.pdf \
 	plots/cycles1.pdf \
 	plots/outliers1.pdf \
 	plots/fastearly1.pdf \
-	plots/steps1.pdf
+	plots/steps1.pdf \
+	plots/leak.pdf
