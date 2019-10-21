@@ -64,14 +64,18 @@ stabilise, or do not stabilise within 2000 iterations.
 \section{Benchmarking Method}
 \label{sec:eval}
 
-Following the precident set by the Renaissance suite, we run (version 0.9.0 of)
-the benchmarks using two different \emph{VM configurations}: \graalce is
-(version 1.0.0-rc16 of) Graal Community Edition running with the default Graal
-compiler configuration; \graalcehs is the same Graal Community Edition binary
-invoked with with arguments to disable the Graal compiler (and instead use the
-regular OpenJDK JIT compiler).
+Following the precedent set by~\cite{prokopec19renaissance} we ran the
+Renaissance benchmarks using different \emph{VM configurations}. \graalce is
+Graal Community Edition invoked with the default Graal compiler options, and
+\graalcehs is the same binary, only invoked with arguments to disable the Graal
+compiler (instead using the regular OpenJDK JIT compiler). We used version 0.9.0
+of the renaissance suite and version 1.0.0-rc16 of the Graal Community
+Edition JVM.
 
-We adopt the benchmarking terminology used in~\cite{barrett16warmup}. A
+To see how a non-Oracle JVM fares on the same suite, we added a third VM
+configuration, \jnine, which is version 0.15.1 of the OpenJ9 JVM.
+
+We adopted the benchmarking terminology used in~\cite{barrett16warmup}. A
 \emph{process execution} is the execution of a single operating system process.
 An \emph{in-process iteration} is a single iteration of a benchmark within a
 process execution, and a single process execution executes many in-process
@@ -79,8 +83,8 @@ iterations. In our experiment, each VM configuration and benchmark pairing is
 run using 10 process executions, and each process execution runs 2000
 in-process iterations.
 
-We run the Renaissance benchmarks in a similar fashion to that used in our
-warmup experiment.~\cite{barrett16warmup}. We use the \krun runner with
+We ran the Renaissance benchmarks in a similar fashion to that used
+in.~\cite{barrett16warmup} We use the \krun runner with
 settings designed to mimimise (where possible) measurement variation introduced
 by the benchmarking environment. For example, consistent stack and heap limits
 are set, undesirable daemons are disabled during benchmarking, the system
@@ -90,7 +94,7 @@ interfaces are disabled during benchmarking.
 One small change was made to \krun. For each process execution, usually a
 \krun experiment will call an \emph{iterations runner} which (amongst other
 things) allocates the results array in an appropriate manner and collects
-wallclock times using an appropriate high-resolution monotonic clock. Instead
+wallclock times using a carefully selected high-resolution monotonic clock. Instead
 of using an iterations runner, we changed \krun, adding the ability to defer
 results collection to an external program.~\footnote{For details, see
 \texttt{ExternalSuiteVMDef} in the \krun source code.} Although such an approach
@@ -107,7 +111,7 @@ and with 32Gib of RAM. Both machines run Debian-9.9 with an indentical set of
 installed packages. Both machines have hyper-threading and turbo boost
 disabled.
 
-Note that because we run the benchmarks and VMs unpatched, we inherit the
+Note that because we ran the benchmarks and VMs unpatched, we inherit the
 choice of clock used for measurements. In the Renaissance suite, benchmark
 timings are collected using \texttt{System.nanoTime()}, whose behaviour is
 platform dependent. On the Linux machines we used, \texttt{System.nanoTime()}
@@ -115,7 +119,7 @@ is implemented with a call to \texttt{clock\_gettime(2)} and using the
 \texttt{CLOCK\_MONOTONIC} clock source.\footnote{This is a monotonic clock which
 is unaffected by user changes to the time, but which \emph{is} affected by
 adjustments by NTP. Ordinarily, on Linux machines we'd prefer the
-\texttt{CLOCK\_GETTIME\_MONOTONIC} clock source.}
+\texttt{CLOCK\_MONOTONIC\_RAW} clock source.}
 
 
 
@@ -123,7 +127,7 @@ adjustments by NTP. Ordinarily, on Linux machines we'd prefer the
 \label{sec:results}
 
 We ran our experiment as described in the previous section, giving us a total
-of 800 process executions and 1.6 million in-process iterations worth of data.
+of 1200 process executions and 2.4 million in-process iterations worth of data.
 We present our results using the same metrics as proposed
 in~\cite{barrett16warmup} and refer the reader to this publication for a more
 in-depth description of the format of our results tables. In short, for each
@@ -134,8 +138,8 @@ The first metric we report is the pairing's \emph{classification}. The
 behaviour of each process execution is individually (but automatically) classified as either:
 \emph{warmup} (\warmup); \emph{slowdown} (\slowdown); \emph{flat} (\flatc); or
 \emph{no steady state} (\nosteadystate). Then based on these classifications,
-we decide an overall summary classification for each benchmark and language
-configuration pairing.
+we decide an overall summary classification for each VM configuration and benchmark
+pairing.
 
 For a \emph{consistent} classification summary result (where all process
 executions behaved the same), a single classification symbol is reported,
@@ -143,8 +147,8 @@ whereas for \emph{inconsistent} results (where we observed more than a single
 classification) the constituent classifications are shown with an indicator of
 whether the inconsistency is a \emph{good inconsistency} (\goodinconsistent)
 or a \emph{bad inconsistency} (\badinconsistent). For example
-\badinconsistent(8\slowdown, 2\warmup) means "bad inconsistent: 8 slowdowns
-and 2 warmups". Only inconsistent behaviours composed of flat and warmup
+\badinconsistent(8\slowdown, 2\warmup) means ``bad inconsistent: 8 slowdowns
+and 2 warmups''. Only inconsistent behaviours composed of flat and warmup
 classifications are considered ``good inconsistent''. This is because
 benchmarks which slow down or fail to stabilise are undesirable.
 
@@ -152,7 +156,7 @@ If a steady state is achieved, we report three additional summary statistics.
 \emph{Steady iter (\#)} is the median in-process iteration number to reach the
 steady state, and \emph{Steady iter (s)} is the median wall-clock time (since
 the beginning of the process execution) to reach the steady state; for both
-measures we report 5\% and 95\% inter-quartile ranges. \emph{Steady perf (s)}
+measures we report 5\% and 95\% inter-quartile ranges\edd{wut? that's not right}. \emph{Steady perf (s)}
 is the mean steady state performance across all process executions (reported
 with 99\% confidence intervals). Thumbnail histograms show the spread of
 values; the red bars indicates the median values.
@@ -160,15 +164,18 @@ values; the red bars indicates the median values.
 \subsection{Analysis}
 
 The results for the two machines are shown in
-Tables~\ref{tab:b7graalce}--\ref{tab:b10graalcehs}. The first thing we notice
-is that the steady state performances (where
-available) of \graalce and \graalcehs are not vastly different. The results
+Tables~\ref{tab:b7graalce}--\ref{tab:b10j9}.
+
+\subsection{Graal Results}
+
+The first thing we notice is that the steady state performances
+of \graalce and \graalcehs (where available) are not vastly different. The results
 presented in the original Renaissance paper~\cite{prokopec19renaissance} showed
 that Graal could achieve some substantial speedups compared to Hotspot. Namely
 a benchmark called \emph{factorie} achieved a speedup of about 3x, scrabble
 about 2x, and \emph{naive-bayes} about 1.75x. In the version of the suite we
 used, \emph{factorie} is absent, \emph{scrabble} achieved about a $15-20\%$
-speedup on \graalce and \emph{naive-bayes} couldn't be compared because it
+speedup and \emph{naive-bayes} couldn't be compared because it
 didn't always stabilise. We acknowledge that this comparison isn't entirely
 fair as it is unlikely that we are using the same versions of the benchmarks
 and of Graal as the original paper (which does not specify which versions were
@@ -184,18 +191,20 @@ the deviations are not large).
 
 The next observation worth note is that around half (44/80) of the VM
 configuration and benchmarking pairings are classified as "bad inconsistent''.
-This suggests that the Renaissance suite exhibits non-determinism at the
-process execution level. The histograms for \emph{Steady iter \#}, \emph{Steady
-iter (s)} and \emph{Steady perf (s)} also suggest that there is a problem with
-non-determinism at the process execution level: the distributions are rarely
-normal, and often bi-modal. It is not clear, however, what the source(s) of
-this variance are (it could be the operating system, hardware, the VM, etc.).
+Thus the Renaissance suite when run with Graal exhibits \emph{process execution non-determinism}. The histograms for \emph{Steady iter \#}, \emph{Steady
+iter (s)} and \emph{Steady perf (s)} also confirm this: the distributions are rarely
+normal, and are often bi-modal. It is not clear, however, what the sources of
+this variance are (it could be the operating system, the hardware, the VM, etc.).
 
 Finally, we highlight the tendency for some benchmarks to stabilise very late
 or not at all. This is troublesome since few current benchmarking approaches
 account for such cases, simply assuming that benchmarks always stabilise after
 a fixed number of in-process iterations. This can lead to inaccurate results,
 and in turn to false conclusions.
+
+\subsection{OpenJ9 Results}
+
+\edd{XXX}
 
 \bibliographystyle{plain}
 \bibliography{bib}
