@@ -204,7 +204,20 @@ and in turn to false conclusions.
 
 \subsection{OpenJ9 Results}
 
-\edd{XXX}
+Again, the \jnine results are broadly similar between the two machines: many
+benchmarks have inconsistent behaviour, and the time taken to achieve a steady
+state is also highly variable with many benchmarks sometimes taking hundreds or
+thousands of in-process iterations to stabilise. Some never stabilise.
+
+Although it would be interesting to compare the \jnine results with that of \graalce,
+a proper comparison is hindered by the fact that many rows are incomparable due
+to either benchmarks being skipped on one or other VM, bad inconsistencies, or
+overlapping confidence intervals (e.g. the future-genetic benchmark).
+
+Of the benchmarks consistently comparable on both machines, we have:
+chi-square; fj-kmeans; scala-stm-bench7; and scrabble. All of these benchmarks
+reach a faster steady state on \graalce (than on \jnine) by 25--45$\%$.
+
 
 \bibliographystyle{plain}
 \bibliography{bib}
