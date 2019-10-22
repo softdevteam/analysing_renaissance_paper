@@ -56,7 +56,8 @@ Renaissance Benchmark Suite.~\cite{prokopec19renaissance} We do so using the
 benchmarking practices from our earlier work on VM
 warmup~\cite{barrett16warmup}. Namely, we run the benchmarks for longer than is
 typical and we use a controlled benchmarking environment enforced by our
-benchmark runner, \krun. We find that many benchmarks exhibit inconsistency at
+benchmark runner, \krun. We find that many benchmarks, when run using Graal
+Community Edition, Hotspot, or OpenJ9, exhibit inconsistency at
 the process execution level, and that many either take a long time to
 stabilise, or do not stabilise within 2000 iterations.
 \end{abstract}
@@ -130,14 +131,26 @@ is unaffected by user changes to the time, but which \emph{is} affected by
 adjustments by NTP. Ordinarily, on Linux machines we'd prefer the
 \texttt{CLOCK\_MONOTONIC\_RAW} clock source.}
 
+\vspace{1em}
+The complete source code for our experiment can be found at:
+\begin{center}
+\url{https://github.com/softdevteam/renaissance_reproduction/}
+\end{center}
+
+\vspace{1em}
+The data used in this paper is version 0.1, and can be downloaded from:
+\begin{center}
+\url{https://archive.org/download/softdev_renaissance_analysis/runs/v0.1/}
+\end{center}
+
 
 
 \section{Results}
 \label{sec:results}
 
 We ran our experiment as described in the previous section, giving us a total
-of 1200 process executions and 2.4 million in-process iterations worth of data.
-We present our results using the same metrics as proposed
+of 1200 process executions and 2.4 million in-process iterations worth of
+data. We present our results using the same metrics as proposed
 in~\cite{barrett16warmup} and refer the reader to this publication for a more
 in-depth description of the format of our results tables. In short, for each
 machine, we present one result table. Each row in a table shows the results for
@@ -234,6 +247,7 @@ Of the benchmarks consistently comparable on both machines, we have:
 
 \appendix
 
+\newpage
 \section{Results Tables}
 
 \newcommand{\captionbsevengraalce}{Results for \graalce on \bencherseven.}
