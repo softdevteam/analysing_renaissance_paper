@@ -75,6 +75,15 @@ Edition JVM.
 To see how a non-Oracle JVM fares on the same suite, we added a third VM
 configuration, \jnine, which is version 0.15.1 of the OpenJ9 JVM.
 
+Note that for some configurations, we had to skip certain benchmarks.
+Specifically: we always skip the \emph{dummy} benchmark, as this does nothing;
+we always skip \emph{finagle-chirper} and \emph{finagle-http} as these use the
+loopback network interface, which we have instructed Krun to disable; we skip
+\emph{db-shootout} on \jnine, as it throws a null pointer exception; we always
+skip \emph{movie-lens}, as it exceeds the 18GiB heap we permitted; and finally
+we skip \emph{page-rank} on \graalce and \graalcehs, due to crashes in the
+benchmark's teardown code.
+
 We adopted the benchmarking terminology used in~\cite{barrett16warmup}. A
 \emph{process execution} is the execution of a single operating system process.
 An \emph{in-process iteration} is a single iteration of a benchmark within a
