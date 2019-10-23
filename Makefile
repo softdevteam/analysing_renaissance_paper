@@ -38,10 +38,9 @@ softdevbib/softdev.bib: softdevbib
 softdevbib:
 	git clone https://github.com/softdevteam/softdevbib.git
 
-TEXMFHOME="../../share/texmf"
 ${MAIN_TEX}.pdf: ${DIAGRAMS} ${MAIN_TEX}.tex ${BIB_FILE} ${TABLES} ${PLOTS}
-	TEXMFHOME=${TEXMFHOME} ${PDFLATEX} ${MAIN_TEX}.tex
 	cd softdevbib && git checkout ${SOFTDEVBIB_VERSION}
+	${PDFLATEX} ${MAIN_TEX}.tex
 	bibtex ${MAIN_TEX}
-	TEXMFHOME=${TEXMFHOME} ${PDFLATEX} ${MAIN_TEX}.tex
-	TEXMFHOME=${TEXMFHOME} ${PDFLATEX} ${MAIN_TEX}.tex
+	${PDFLATEX} ${MAIN_TEX}.tex
+	${PDFLATEX} ${MAIN_TEX}.tex
