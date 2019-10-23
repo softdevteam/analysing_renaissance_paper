@@ -44,22 +44,22 @@
 \begin{document}
 
 
-\title{Analysing the Renaissance Benchmark Suite~\footnote{Updates to this paper will be found at \url{XXX}}}
+\title{Repeating the Renaissance\footnote{Updates to this paper will be found at \url{XXX}}}
 
 \author{Edd Barrett and Laurence Tratt}
 
 \maketitle
 
 \begin{abstract}
-\noindent In this early draft we evaluate the warmup characteristics of the
-Renaissance Benchmark Suite.~\cite{prokopec19renaissance} We do so using the
-benchmarking practices from our earlier work on VM
-warmup~\cite{barrett16warmup}. Namely, we run the benchmarks for longer than is
-typical and we use a controlled benchmarking environment enforced by our
-benchmark runner, \krun. We find that many benchmarks, when run using Graal
-Community Edition, Hotspot, or OpenJ9, exhibit inconsistency at
-the process execution level, and that many either take a long time to
-stabilise, or do not stabilise within 2000 iterations.
+Renaissance is a new JVM benchmark suite. In this paper we show the results of
+repeating the experiment, with several important changes: we extended the
+running time so that every benchmark runs for the same number of in-process
+iterations; used two machines for benchmarking; ran the experiments in a more
+carefully controlled environment; and used a more advanced statistical method
+to analyse the results. We thus obtained data for 6 (VM, machine) pairs. Of the
+21 Renaissance benchmarks we were able to run, 16 failed to consistently
+stabilise on at least 1 (VM, machine) pair, with 7 of those failing to
+consistently stabilise on 3 or more (VM, machine pairs).
 \end{abstract}
 
 \section{Benchmarking Method}
@@ -147,6 +147,41 @@ The data used in this paper is version 0.1, and can be downloaded from:
 
 \section{Results}
 \label{sec:results}
+
+\begin{table}[t]
+\begin{tabular}{lcccccc}
+\toprule
+  & \multicolumn{3}{c}{\bencherseven} & \multicolumn{3}{c}{\bencherten} \\
+  \cmidrule(lr){2-4} \cmidrule(lr){5-7}
+  & \rotatebox{90}{\graalce} & \rotatebox{90}{\graalcehs} & \rotatebox{90}{\jnine} & \rotatebox{90}{\graalce} & \rotatebox{90}{\graalcehs} & \rotatebox{90}{\jnine} \\
+\midrule
+akka-uct          & X & X &   & X &   &   \\
+als               &   &   & X & X & X & X \\
+chi-square        &   & X &   &   &   &   \\
+db-shootout       &   &   & - &   &   & - \\
+dec-tree          &   & X & X &   &   & X \\
+dotty             &   &   &   &   &   & X \\
+fj-kmeans         &   &   &   &   &   &   \\
+future-genetic    &   & X &   &   &   &   \\
+gauss-mix         &   &   & X &   &   &   \\
+log-regression    & X & X & X & X &   &   \\
+mnemonics         &   &   & X &   &   & X \\
+naive-bayes       & X &   &   & X &   & X \\
+neo4j-analytics   & X & X & X & X &   & X \\
+page-rank         & - & - &   & - & - &   \\
+par-mnemonics     &   &   & X &   &   & X \\
+philosophers      & X &   &   & X &   &   \\
+reactors          &   &   & X &   &   &   \\
+rx-scrabble       &   &   &   & X &   & X \\
+scala-kmeans      & X & X &   & X & X & X \\
+scala-stm-bench7  &   &   &   &   &   &   \\
+scrabble          &   &   &   &   &   &   \\
+\bottomrule
+\end{tabular}
+\caption{Cells with an `X' represent at least 1 process execution not
+stabilising. Cells with a `-' represent benchmarks which we could not run on a
+given VM.}
+\end{table}
 
 We ran our experiment as described in the previous section, giving us a total
 of 1200 process executions and 2.4 million in-process iterations worth of
