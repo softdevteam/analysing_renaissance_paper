@@ -37,8 +37,8 @@
 \newcommand{\graalce}{\textsc{Graal CE}\xspace}
 \newcommand{\graalcehs}{\textsc{Graal CE Hotspot}\xspace}
 \newcommand{\jnine}{\textsc{OpenJ9}\xspace}
-\newcommand{\bencherseven}{Linux$_\mathrm{1240v5}$\xspace}
-\newcommand{\bencherten}{Linux$_\mathrm{1240v6}$\xspace}
+\newcommand{\bencherseven}{Linux1$_\mathrm{1240v5}$\xspace}
+\newcommand{\bencherten}{Linux2$_\mathrm{1240v6}$\xspace}
 \input{tables/preamble}
 
 \begin{document}
@@ -56,10 +56,10 @@ repeating the experiment, with several important changes: we extended the
 running time so that every benchmark runs for the same number of in-process
 iterations; used two machines for benchmarking; ran the experiments in a more
 carefully controlled environment; and used a more advanced statistical method
-to analyse the results. We thus obtained data for 6 (VM, machine) pairs. Of the
+to analyse the results. We thus obtained data for 6 $\langle$VM, machine$\rangle$ pairings. Of the
 21 Renaissance benchmarks we were able to run, 16 failed to consistently
-stabilise on at least 1 (VM, machine) pair, with 7 of those failing to
-consistently stabilise on 3 or more (VM, machine pairs).
+stabilise for at least 1 pairing, with 7 of those benchmarks failing to
+consistently stabilise for 3 or more pairings.
 \end{abstract}
 
 \section{Benchmarking Method}
@@ -180,7 +180,8 @@ scrabble          &   &   &   &   &   &   \\
 \end{tabular}
 \caption{Cells with an `X' represent at least 1 process execution not
 stabilising. Cells with a `-' represent benchmarks which we could not run on a
-given VM.}
+given VM.\edd{I like this table. Shall we put another to the right with those
+that have 3 or more inconsistencies, like you mentioned in the abstract?}}
 \end{table}
 
 We ran our experiment as described in the previous section, giving us a total
