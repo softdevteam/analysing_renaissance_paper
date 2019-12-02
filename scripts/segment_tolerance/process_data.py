@@ -5,11 +5,9 @@ import sys
 from warmup.krun_results import parse_krun_file_with_changepoints
 from warmup.summary_statistics import collect_summary_statistics
 
-DATA_DIR = "data"
-QUALITY = "LOW"
 
-
-def process_delta(delta_dir, delta):
+def process_delta(delta, data_dir, quality):
+    delta_dir = os.path.join(data_dir, delta)
     result_files = os.listdir(delta_dir)
 
     # The number of no steady state process executions.
@@ -21,7 +19,7 @@ def process_delta(delta_dir, delta):
         classifier, data = parse_krun_file_with_changepoints([path])
         summaries = collect_summary_statistics(data, classifier['delta'],
                                                classifier['steady'],
-                                               quality=QUALITY)
+                                               quality=quality)
 
         for mach, mach_data in summaries['machines'].items():
             for vm, vm_data in mach_data.items():
@@ -33,13 +31,16 @@ def process_delta(delta_dir, delta):
     return nss_count, pexec_count
 
 
-def main(data_dir):
+def main(data_dir, quality):
     cached_pexec_count = None
+    out_path = os.path.join(data_dir, "nss_counts.csv")
 
-    with open("nss_counts.csv","w") as out_file:
+    with open(out_path, "w") as out_file:
         for delta in os.listdir(data_dir):
-            delta_dir = os.path.join(data_dir, delta)
-            nss_count, pexec_count = process_delta(delta_dir, float(delta))
+            if delta.endswith(".csv"):
+                continue  # skip output file.
+
+            nss_count, pexec_count = process_delta(delta, data_dir, quality)
 
             # Should have seen the same number of pexecs for all deltas.
             if cached_pexec_count is None:
@@ -50,5 +51,20 @@ def main(data_dir):
             out_file.write("%s,%s\n" % (delta, nss_count))
 
 
+def usage():
+    print("usage: process_data.py <data-dir> <quality>\n")
+    print("  where <quality> is HIGH or LOW")
+    sys.exit(1)
+
+
 if __name__ == "__main__":
-    main(DATA_DIR)
+    try:
+        data_dir = sys.argv[1]
+        quality = sys.argv[2]
+    except IndexError:
+        usage()
+
+    if quality not in ("HIGH", "LOW"):
+        usage()
+
+    main(data_dir, quality)
